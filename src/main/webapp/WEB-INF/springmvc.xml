@@ -11,12 +11,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd" >
 
     <context:annotation-config />
     
-    <context:component-scan base-package="edu.nju.rms">
-        <context:include-filter type="annotation"
-            expression="org.springframework.stereotype.Controller" />
-    </context:component-scan>
-    
-	<mvc:annotation-driven />
 	<mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
@@ -43,9 +37,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd" >
     <mvc:resources location="/js/" mapping="/js/**"/>
     <mvc:resources location="/css/" mapping="/css/**"/>  
     <mvc:resources location="/fonts/" mapping="/fonts/**"/>
-    
-    <mvc:view-controller path="" view-name="forward:index"/>
-    <mvc:view-controller path="/" view-name="forward:index"/>
     
 	<!--使Spring支持自动检测组件，如注解的Controller -->
 	<context:component-scan base-package="edu.nju.rms.controller" />

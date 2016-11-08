@@ -10,10 +10,7 @@
 	<bean id="userDao" class="edu.nju.rms.dao.UserDaoImpl">
 		<property name="baseDao" ref="baseDao"></property>
 	</bean>
-		
-	<bean id="IndexController" class="edu.nju.rms.controller.IndexController">
-	</bean>	
-	
+
 	<bean id="userService" class="edu.nju.rms.service.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
 	</bean>

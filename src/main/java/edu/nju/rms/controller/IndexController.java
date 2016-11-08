@@ -5,11 +5,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value="/")
+@RequestMapping(value="")
 public class IndexController {
 
-	@RequestMapping(value="/index")
-	public String index(ModelMap model){
+	public String welcome(ModelMap model){
 		return "index";
 	}
 	

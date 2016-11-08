@@ -6,6 +6,8 @@
 <hibernate-configuration>
     <session-factory>
     
+		<mapping class="edu.nju.rms.model.User" />
+
         <property name="show_sql">true</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="jdbc.fetch_size">16</property>
@@ -21,7 +23,6 @@
 		<property name="hibernate.connection.username">admin</property>
 		<property name="hibernate.connection.password">admin</property> 
 		
-		<mapping class="edu.nju.rms.model.User" />
     	
     </session-factory>
 </hibernate-configuration>

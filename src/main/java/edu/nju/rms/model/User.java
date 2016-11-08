@@ -11,7 +11,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer uid;
 	
 	private String name;
 	
@@ -25,13 +25,15 @@ public class User {
 		super();
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getUid() {
+		return uid;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
 	}
+
 
 	public String getName() {
 		return name;
