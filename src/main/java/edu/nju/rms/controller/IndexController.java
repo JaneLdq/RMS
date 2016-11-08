@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value="")
 public class IndexController {
 
+	@RequestMapping(value="/")
 	public String welcome(ModelMap model){
 		return "index";
 	}

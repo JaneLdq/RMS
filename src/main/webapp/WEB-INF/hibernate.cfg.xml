@@ -5,9 +5,6 @@
 
 <hibernate-configuration>
     <session-factory>
-    
-		<mapping class="edu.nju.rms.model.User" />
-
         <property name="show_sql">true</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="jdbc.fetch_size">16</property>
@@ -18,11 +15,13 @@
     	<property name="show_sql">true</property>
         <property name="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</property>
     	<property name="hibernate.connection.url">
-        	<![CDATA[jdbc:mysql://106.14.26.228:3306/rms?useUnicode=true&characterEncoding=utf8]]>
+        	<![CDATA[jdbc:mysql://106.14.26.228:3306/rms?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false]]>
 		</property>
 		<property name="hibernate.connection.username">admin</property>
-		<property name="hibernate.connection.password">admin</property> 
+		<property name="hibernate.connection.password">admin</property>
+		<property name="hibernate.current_session_context_class">thread</property> 
 		
-    	
+		<mapping class="edu.nju.rms.model.User" />
+		<mapping class="edu.nju.rms.model.RiskProject" />
     </session-factory>
 </hibernate-configuration>

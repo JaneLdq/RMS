@@ -1,39 +1,33 @@
 package edu.nju.rms.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.Table;
 
 @Entity
+@Table(name="user")
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer uid;
+	private int uid;
 	
 	private String name;
-	
-	private String password;
 	
 	private String email;
 	
 	private int role;
+	
+	private String password;
+	
+	public User() {}
 
-	public User(){
-		super();
-	}
-
-	public Integer getUid() {
+	public int getUid() {
 		return uid;
 	}
 
-
-	public void setUid(Integer uid) {
+	public void setUid(int uid) {
 		this.uid = uid;
 	}
-
 
 	public String getName() {
 		return name;
@@ -41,14 +35,6 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getEmail() {
@@ -66,6 +52,15 @@ public class User {
 	public void setRole(int role) {
 		this.role = role;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	
 	
 	

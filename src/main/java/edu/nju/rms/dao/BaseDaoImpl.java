@@ -3,9 +3,16 @@ package edu.nju.rms.dao;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 public class BaseDaoImpl implements BaseDao{
 
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+	
 	public Session getSession() {
 		// TODO Auto-generated method stub
 		return null;
