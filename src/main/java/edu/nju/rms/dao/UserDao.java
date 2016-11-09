@@ -8,12 +8,14 @@ public interface UserDao {
 	
 	public int addUser(User user);
 		
-	public boolean deleteUser(String uid);
+	public boolean deleteUser(int uid);
 	
 	public boolean updateUser(User user);
 	
-	public User getUser(int id);
+	public User getUser(int uid);
 	
 	public List<User> getAllUser();
+	
+	public User check(String username, String password);
 
 }

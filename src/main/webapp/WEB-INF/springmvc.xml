@@ -42,8 +42,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd" >
     
 	<!--使Spring支持自动检测组件，如注解的Controller -->
 	<context:component-scan base-package="edu.nju.rms.controller">
-		<context:include-filter type="annotation"
-			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
 	</context:component-scan>
     
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  

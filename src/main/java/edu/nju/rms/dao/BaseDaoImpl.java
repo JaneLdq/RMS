@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class BaseDaoImpl implements BaseDao{
+public class BaseDaoImpl implements BaseDao {
 
 	private SessionFactory sessionFactory;
 	
@@ -13,64 +13,93 @@ public class BaseDaoImpl implements BaseDao{
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public Session getSession() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Session getNewSession() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void flush() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void clear() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	@SuppressWarnings("rawtypes")
 	public Object load(Class c, String id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = getSession();
+		return session.get(c, id);
 	}
 
+	@SuppressWarnings("rawtypes")
 	public List getAllList(Class c) {
-		// TODO Auto-generated method stub
-		return null;
+		String hql = "from " + c.getName();
+		Session session = getSession();
+		return session.createQuery(hql).list();
+
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Long getTotalCount(Class c) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = getSession();
+		String hql = "select count(*) from " + c.getName();
+		Long count = (Long) session.createQuery(hql).uniqueResult();
+		session.close();
+		return count != null ? count.longValue() : 0;
 	}
 
 	public boolean save(Object bean) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Session session = getSession();
+			session.save(bean);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 	public boolean update(Object bean) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Session session = getSession();
+			session.update(bean);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 	public boolean delete(Object bean) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Session session = getSession();
+			session.delete(bean);
+		}catch (Exception e){
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
+	@SuppressWarnings({ "rawtypes" })
 	public void delete(Class c, String id) {
-		// TODO Auto-generated method stub
-		
+		Session session = getSession();
+		Object obj = session.get(c, id);
+		session.delete(obj);
 	}
 
+	@SuppressWarnings({ "rawtypes" })
 	public void delete(Class c, String[] ids) {
-		// TODO Auto-generated method stub
-		
+		for (String id : ids) {
+			Object obj = getSession().get(c, id);
+			if (obj != null) {
+				getSession().delete(obj);
+			}
+		}
+	}
+
+	public Session getSession() {
+		return sessionFactory.getCurrentSession();
+	}
+
+	public Session getNewSession() {
+		return sessionFactory.openSession();
+	}
+
+	public void flush() {
+		getSession().flush();
+	}
+
+	public void clear() {
+		getSession().clear();
 	}
 
 }

@@ -21,9 +21,15 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-	public User getUser(String uid) {
-		// TODO Auto-generated method stub
-		return null;
+	public User getUser(int uid) {
+		return userDao.getUser(uid);
+	}
+
+	public User check(String username, String password) {
+		if (username == null || password == null) {
+			return null;
+		}
+		return userDao.check(username, password);
 	}
 
 }

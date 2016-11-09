@@ -10,13 +10,28 @@
 	<bean id="userDao" class="edu.nju.rms.dao.UserDaoImpl">
 		<property name="baseDao" ref="baseDao"></property>
 	</bean>
+	
+	<bean id="riskDao" class="edu.nju.rms.dao.RiskDaoImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
 
 	<bean id="userService" class="edu.nju.rms.service.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<bean id="riskService" class="edu.nju.rms.service.RiskServiceImpl">
+		<property name="riskDao" ref="riskDao"></property>
 	</bean>
 	
 	<bean id="authService" class="edu.nju.rms.service.AuthServiceImpl">
 		<property name="userDao" ref="userDao"></property>
 	</bean>
 
+	<bean id="authController" class="edu.nju.rms.controller.AuthController">
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<bean id="riskController" class="edu.nju.rms.controller.RiskController">
+		<property name="riskService" ref="riskService"></property>
+	</bean>
 </beans>

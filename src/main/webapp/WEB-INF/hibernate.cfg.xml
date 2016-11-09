@@ -15,11 +15,10 @@
     	<property name="show_sql">true</property>
         <property name="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</property>
     	<property name="hibernate.connection.url">
-        	<![CDATA[jdbc:mysql://106.14.26.228:3306/rms?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false]]>
+        	<![CDATA[jdbc:mysql://106.14.26.228:3306/rms?useUnicode=true&characterEncoding=utf8]]>
 		</property>
 		<property name="hibernate.connection.username">admin</property>
 		<property name="hibernate.connection.password">admin</property>
-		<property name="hibernate.current_session_context_class">thread</property> 
 		
 		<mapping class="edu.nju.rms.model.User" />
 		<mapping class="edu.nju.rms.model.RiskProject" />
