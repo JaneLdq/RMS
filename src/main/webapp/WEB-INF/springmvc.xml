@@ -38,8 +38,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd" >
     <mvc:resources location="/css/" mapping="/css/**"/>  
     <mvc:resources location="/fonts/" mapping="/fonts/**"/>
     
-    <mvc:view-controller path="" view-name="forward:/"/>
-    
 	<!--使Spring支持自动检测组件，如注解的Controller -->
 	<context:component-scan base-package="edu.nju.rms.controller">
 	</context:component-scan>

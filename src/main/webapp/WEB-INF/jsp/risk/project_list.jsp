@@ -22,12 +22,13 @@
 	        </thead>
 	        <tbody>
 				<c:forEach items="${projects}" var="project">
-					<tr>
+					<a href="#"><tr>
 			  			<td>${project.id}</td>
 			  			<td>${project.name}</td>
 			  			<td>${project.creater}</td>
 			  			<td>${project.ctime}</td>
 					</tr>
+					</a>
 				</c:forEach>
 			</tbody>
 		</table>

@@ -38,18 +38,14 @@ public class AuthController {
 			response.sendRedirect(request.getContextPath()+ "/home");
 		}else{
 			request.setAttribute("msg", "用户名或密码错误!");
-			request.getRequestDispatcher("/").forward(request, response);
+			request.getRequestDispatcher("").forward(request, response);
 		}
 	}
 	
 	@RequestMapping(value="/logout")
-	public void logout(HttpServletRequest request, HttpServletResponse response) {
+	public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		request.getSession().removeAttribute("uid");
 		request.getSession().removeAttribute("admin");
-		try {
-			response.sendRedirect(request.getContextPath());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		response.sendRedirect(request.getContextPath());
 	}
 }
